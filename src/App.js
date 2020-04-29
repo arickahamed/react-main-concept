@@ -49,10 +49,20 @@ function App() {
           ))}
         </ol>
 
-        <Product product={add[1]}></Product>
+        {/* <ul>
+          {add.map((product) => (
+            <li>{product.name}</li>
+          ))}
+        </ul> */}
+
+        {add.map((element) => (
+          <Product product={element}></Product>
+        ))}
+
+        {/* <Product product={add[1]}></Product>
         <Product product={add[0]}></Product>
         <Product product={add[2]}></Product>
-        <Product product={add[3]}></Product>
+        <Product product={add[3]}></Product> */}
       </header>
     </div>
   );

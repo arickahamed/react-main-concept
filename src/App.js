@@ -30,6 +30,8 @@ function App() {
     { name: "Begun", price: "$1.63" },
     { name: "Potol", price: "$1.18" },
     { name: "Korola", price: "$1.37" },
+    { name: "Peyaj", price: "$3.37" },
+    { name: "Mug Dal", price: "$1.37" },
   ];
 
   return (
@@ -49,17 +51,17 @@ function App() {
           ))}
         </ol>
 
+        {add.map((element) => (
+          <Goods product={element}></Goods>
+        ))}
+
         {/* <ul>
           {add.map((product) => (
             <li>{product.name}</li>
           ))}
-        </ul> */}
+        </ul>
 
-        {add.map((element) => (
-          <Product product={element}></Product>
-        ))}
-
-        {/* <Product product={add[1]}></Product>
+        <Product product={add[1]}></Product>
         <Product product={add[0]}></Product>
         <Product product={add[2]}></Product>
         <Product product={add[3]}></Product> */}
@@ -68,7 +70,7 @@ function App() {
   );
 }
 
-function Product(props) {
+function Goods(props) {
   const { name, price } = props.product;
   const productStyle = {
     border: "1px solid yellow",

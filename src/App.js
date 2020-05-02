@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import logo from "./logo.svg";
 import "./App.css";
 
@@ -39,6 +39,10 @@ function App() {
       <header className="App-header">
         <p style={{ color: "orange" }}>ALHAMDULILLAH</p>
 
+        <Counter></Counter>
+
+        <Users></Users>
+
         <ul>
           {nayoks.map((hero) => (
             <li>{hero}</li>
@@ -66,6 +70,41 @@ function App() {
         <Product product={add[2]}></Product>
         <Product product={add[3]}></Product> */}
       </header>
+    </div>
+  );
+}
+
+function Counter() {
+  const [count, setCount] = useState(12);
+  const handeDencrease = () => setCount(count - 1);
+  const handelIncrease = () => setCount(count + 1);
+
+  return (
+    <div>
+      <h1>Count : {count} </h1>
+      <button onClick={handeDencrease}>Increase</button>
+      <button onClick={handelIncrease}>Increase</button>
+    </div>
+  );
+}
+
+function Users() {
+  const [users, setUsers] = useState([]);
+
+  useEffect(() => {
+    fetch("https://jsonplaceholder.typicode.com/users")
+      .then((res) => res.json())
+      .then((data) => setUsers(data));
+  }, []);
+
+  return (
+    <div>
+      <h3>Dynamic Useres : {users.length} </h3>
+      <ul>
+        {users.map((user) => (
+          <li>{user.name}</li>
+        ))}
+      </ul>
     </div>
   );
 }
